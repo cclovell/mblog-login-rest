@@ -1,5 +1,6 @@
 package com.cc.mblog.controller;
 
+import com.cc.mblog.base.BaseReq;
 import com.cc.mblog.base.BaseResp;
 import com.cc.mblog.manage.LoginManage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,8 @@ public class LoginController {
     LoginManage loginManage;
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public BaseResp login(String username){
-        System.out.println(username);
-        return  loginManage.login();
+    public BaseResp login(BaseReq baseReq){
+        System.out.println(baseReq.getPassword());
+        return  loginManage.login(baseReq);
     }
 }
