@@ -4,7 +4,6 @@
 	<springProperty name="homePath" source="env.home.path"/>
 	<contextName>${APP_NAME}</contextName>
 	<include resource="org/springframework/boot/logging/logback/base.xml" />
-	<turboFilter class="com.stone.logging.ThreadLevelFilter"/>
 	<appender name="STBRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<File>${homePath}/logs/${APP_NAME}.log</File>
 		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
@@ -22,7 +21,7 @@
 
 	<springProfile name="dev">
 		<root level="INFO">
-			<appender-ref ref="CONSOLE" />
+			<appender-ref ref="STBRollingFileAppender" />
 		</root>
 	</springProfile>
 	<springProfile name="test">

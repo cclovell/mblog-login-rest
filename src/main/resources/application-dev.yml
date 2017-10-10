@@ -1,2 +1,15 @@
 server:
   port: 8819
+
+spring:
+  dubbo:
+    application:
+      name: loginrest
+    registry:
+      address: zookeeper://101.132.104.145:2181
+    scan: com.cc.mblog
+
+
+env:
+  home:
+    path: E:\logs
